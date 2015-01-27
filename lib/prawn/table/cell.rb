@@ -73,7 +73,7 @@ module Prawn
             [min_widths[cell.column], cell.min_width].max
         end
         min_widths[column] = [min_widths[column], min_width_ignoring_span].max
-        min_widths.values.inject(0, &:+)
+        min_widths.values.inject(0, :+)
       end
 
       # Min-width of the span divided by the number of columns.
@@ -103,7 +103,7 @@ module Prawn
             [max_widths[cell.column], cell.max_width].min
         end
         max_widths[column] = [max_widths[column], max_width_ignoring_span].min
-        max_widths.values.inject(0, &:+)
+        max_widths.values.inject(0, :+)
       end
 
       # Manually specify the cell's height.
@@ -263,7 +263,7 @@ module Prawn
             [column_widths[cell.column], cell.width].max
         end
         column_widths[column] = [column_widths[column], width_ignoring_span].max
-        column_widths.values.inject(0, &:+)
+        column_widths.values.inject(0, :+)
       end
 
       # Manually sets the cell's width, inclusive of padding.
@@ -319,7 +319,7 @@ module Prawn
           row_heights[cell.row] = [row_heights[cell.row], cell.height].max
         end
         row_heights[row] = [row_heights[row], height_ignoring_span].max
-        row_heights.values.inject(0, &:+)
+        row_heights.values.inject(0, :+)
       end
 
       # Returns the height of the bare content in the cell, excluding padding.

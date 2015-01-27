@@ -538,7 +538,7 @@ module Prawn
     # a mile long.
     #
     def natural_width
-      @natural_width ||= natural_column_widths.inject(0, &:+)
+      @natural_width ||= natural_column_widths.inject(0, :+)
     end
 
     # Assigns the calculated column widths to each cell. This ensures that each

@@ -161,13 +161,13 @@ module Prawn
               compact.max
           end
         end
-        widths.values.inject(0, &:+)
+        widths.values.inject(0, :+)
       end
 
       # Returns minimum width required to contain cells in the set.
       #
       def min_width
-        aggregate_cell_values(:column, :avg_spanned_min_width, :max)
+        aggregate_cell_values(:column, :min_width_ignoring_span, :max)
       end
 
       # Returns maximum width that can contain cells in the set.
@@ -233,7 +233,7 @@ module Prawn
           index = cell.send(row_or_column)
           values[index] = [values[index], cell.send(meth)].compact.send(aggregate)
         end
-        values.values.inject(0, &:+)
+        values.values.inject(0, :+)
       end
 
       # Transforms +spec+, a column / row specification, into an object that
